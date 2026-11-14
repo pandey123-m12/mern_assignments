@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comprehensive Fitness & Performance Tracker</title>
+  <style>
+    /* CSS Variables defined in :root */
+    :root {
+      --primary-color: #1e3a8a;
+      --primary-light: #3b82f6;
+      --primary-dark: #1e293b;
+      --accent-color: #0d9488;
+      --bg-color: #f8fafc;
+      --text-color: #334155;
+      --border-color: #cbd5e1;
+      --row-even-bg: #f1f5f9;
+      --row-hover-bg: #e2e8f0;
+      --highlight-bg: #e0f2fe;
+
+      --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --font-size-base: 0.875rem;
+      --font-size-header: 0.95rem;
+      --font-size-caption: 1.25rem;
+
+      --spacing-xs: 4px;
+      --spacing-sm: 8px;
+      --spacing-md: 12px;
+      --spacing-lg: 16px;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      padding: var(--spacing-lg);
+      margin: 0;
+    }
+
+    .table-container {
+      overflow-x: auto;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      background-color: #ffffff;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: var(--font-size-base);
+      text-align: left;
+    }
+
+    caption {
+      caption-side: top;
+      font-size: var(--font-size-caption);
+      font-weight: bold;
+      color: var(--primary-dark);
+      padding: var(--spacing-md);
+      text-align: left;
+      background-color: #ffffff;
+      border-bottom: 2px solid var(--primary-light);
+    }
+
+    th, td {
+      padding: var(--spacing-sm) var(--spacing-md);
+      border: 1px solid var(--border-color);
+    }
+
+    /* Header styling */
+    thead th {
+      background-color: var(--primary-color);
+      color: #ffffff;
+      font-size: var(--font-size-header);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Sub-headers */
+    thead tr:nth-child(2) th {
+      background-color: var(--primary-light);
+      font-size: var(--font-size-base);
+    }
+
+    /* Row striping */
+    tbody tr:nth-child(even) {
+      background-color: var(--row-even-bg);
+    }
+
+    /* Hover effect */
+    tbody tr:hover {
+      background-color: var(--row-hover-bg);
+    }
+
+    /* Row header styling */
+    tbody th {
+      background-color: #ffffff;
+      font-weight: 600;
+      color: var(--primary-dark);
+    }
+
+    tbody tr:nth-child(even) th {
+      background-color: var(--row-even-bg);
+    }
+
+    /* Highlighted merged cells */
+    .merged-phase {
+      background-color: var(--highlight-bg) !important;
+      font-weight: bold;
+      color: var(--primary-dark);
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    /* Footer styling */
+    tfoot {
+      background-color: var(--primary-dark);
+      color: #ffffff;
+      font-weight: bold;
+    }
+
+    tfoot td {
+      border-color: var(--primary-dark);
+      padding: var(--spacing-md);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="table-container">
+    <table>
+      <caption>20-Week Master Training & Performance Schedule</caption>
+      <thead>
+        <tr>
+          <!-- Rowspan use 1 -->
+          <th scope="col" rowspan="2">Phase</th>
+          <!-- Rowspan use 2 -->
+          <th scope="col" rowspan="2">Week</th>
+          <th scope="col" rowspan="2">Primary Focus</th>
+          <!-- Colspan use 1 -->
+          <th scope="colgroup" colspan="3">Cardio & Endurance</th>
+          <!-- Colspan use 2 -->
+          <th scope="colgroup" colspan="3">Strength & Resistance</th>
+          <th scope="col" rowspan="2">Target HR (BPM)</th>
+        </tr>
+        <tr>
+          <th scope="col">Activity</th>
+          <th scope="col">Duration (min)</th>
+          <th scope="col">Intensity</th>
+          <th scope="col">Target Muscle</th>
+          <th scope="col">Sets x Reps</th>
+          <th scope="col">Weight Limit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Phase 1: Conditioning (Weeks 1-5) -->
+        <tr>
+          <!-- Rowspan use 3 (Phase 1 spanned across 5 rows) -->
+          <th scope="rowgroup" rowspan="5" class="merged-phase">Phase 1:<br>Conditioning</th>
+          <th scope="row">Week 1</th>
+          <td>Aerobic Base</td>
+          <td>Light Jogging</td>
+          <td>30</td>
+          <td>Low</td>
+          <td>Full Body</td>
+          <td>3 x 12</td>
+          <td>Bodyweight</td>
+          <td>120 - 135</td>
+        </tr>
+        <tr>
+          <th scope="row">Week 2</th>
+          <td>Aerobic Base</td>
+          <td>Bisk Cycling</td>
+          <td>35</td>
+          <td>Low</td>
+          <td>Lower Body</td>
+          <td>3 x 12</td>
+          <td>Light (50%)</td>
+          <td>120 - 135</td>
+        </tr>
+        <tr>
+          <th scope="row">Week 3</th>
+          <td>Stamina Intro</td>
+          <td>Rowing Machine</td>
+          <td>40</td>
+          <td>Moderate</td>
+          <td>Upper Body</td>
+          <td>3 x 10</td>
+          <td>Moderate (60%)</td>
+          <td>130 - 145</td>
+        </tr>
+        <tr>
+          <th scope="row">Week 4</th>
+          <td>Stamina Build</td>
+          <td>Treadmill Incline</td>
+          <td>45</td>
+          <td>Moderate</td>
+          <td>Core & Back</td>
+          <td>4 x 10</td>
+          <td>Moderate (60%)</td>
+          <td>130 - 145</td>
+        </tr>
+        <tr>
+          <th scope="row">Week 5</th>
+          <td>Deload & Form</td>
+          <td>Brisk Walking</td>
+          <td>30</td>
+          <td>Low</td>
+          <td>Mobility Work</td>
+          <td>2 x 15</td>
+          <td>Bodyweight</td>
+          <td>115 - 125</td>
+        </tr>
+
+        <!-- Phase 2: Hypertrophy (Weeks 6-10) -->
+        <tr>
+          <!-- Rowspan use 4 (Phase 2 spanned across 5 rows) -->
+          <th scope="rowgroup" rowspan="5" class="merged-phase">Phase 2:<br>Hypertrophy</th>
+          <th scope="row">Week 6</th>
+          <td>Volume Intro</td>
+          <td>Stair Master</td>
+          <td>25</td>
+          <td>Moderate</td>
+          <td>Chest & Triceps</td>
+          <td>4 x 8-12</td>
+          <td>Heavy (70%)</td>
+          <td>140 - 155</td>
+        </tr>
+        <tr>
+          <th scope="row">Week 7</th>
+          <td>Volume Push</td>
+          <td>Interval Cycling</td>
+          <td>30</td>
+          <td>High</td>
+          <td>Back & Biceps</td>
+          <td>4 x 8-12</td>
+          <td>Heavy (72.5%)</td>
+          <td>145 - 160</td>
+        </tr>
+        <tr>
+          <th scope="row">Week 8</th>
+          <td>Volume Peak</td>
+          <td>HIIT Circuit</td>
+          <td>25</td>
+          <td>High</td>
+          <td>Legs & Shoulders</td>
+          <td>4 x 8-12</td>
+          <td>Heavy (75%)</td>
+          <td>150 - 165</td>
+        </tr>
+        <tr>
+          <th scope="row">Week 9</th>
+          <td>Overload</td>
+          <td>Rowing Intervals</td>
+          <td>30</td>
+          <td>High</td>
+          <td>Full Body Split</td>
+          <td>5 x 8-10</td>
+          <td>Heavy (77.5%)</td>
+          <td>150 - 165</td>
+        </tr>
+        <tr>
+          <th scope="row">Week 10</th>
+          <td>Active Recovery</td>
+          <td>Swimming</td>
+          <td>40</td>
+          <td>Low</td>
+          <td>Flexibility</td>
+          <td>2 x 12</td>
+          <td>Bodyweight</td>
+          <td>115 - 130</td>
+        </tr>
+
+        <!-- Phase 3: Max Strength (Weeks 11-15) -->
+        <tr>
+          <th scope="rowgroup" rowspan="5" class="merged-phase">Phase 3:<br>Max Strength</th>
+          <th scope="row">Week 11</th>
+          <td>Heavy Load Intro</td>
+          <td>Steady Jog</td>
+          <td>20</td>
+          <td>Low</td>
+          <td>Squat Focus</td>
+          <td>5 x 5</td>
+          <td>Max (80%)</td>
+          <td>135 - 150</td>
+        </tr>
+        <tr>
+          <th scope="row">Week 12</th>
+          <td>Heavy Load Push</td>
+          <td>Jump Rope</td>
+          <td>20</td>
+          <td>Moderate</td>
+          <td>Bench Focus</td>
+          <td>5 x 5</td>
+          <td>Max (82.5%)</td>
+          <td>140 - 155</td>
+        </tr>
+        <tr>
+          <th scope="row">Week 13</th>
+          <td>Heavy Load Peak</td>
+          <td>Assault Bike</td>
+          <td>15</td>
+          <td>High</td>
+          <td>Deadlift Focus</td>
+          <td>5 x 3</td>
+          <td>Max (85%)</td>
+          <td>145 - 160</td>
+        </tr>
+        <tr>
+          <th scope="row">Week 14</th>
+          <td>Neural Drive</td>
+          <td>Sprints</td>
+          <td>15</td>
+          <td>Maximum</td>
+          <td>Overhead Press</td>
+          <td>5 x 3</td>
+          <td>Max (87.5%)</td>
+          <td>155 - 170</td>
+        </tr>
+        <tr>
+          <th scope="row">Week 15</th>
+          <td>Deload</td>
+          <td>Light Cycling</td>
+          <td>30</td>
+          <td>Low</td>
+          <td>Joint Care</td>
+          <td>3 x 8</td>
+          <td>Light (50%)</td>
+          <td>110 - 125</td>
+        </tr>
+
+        <!-- Phase 4: Peak & Taper (Weeks 16-20) -->
+        <tr>
+          <th scope="rowgroup" rowspan="5" class="merged-phase">Phase 4:<br>Peak & Taper</th>
+          <th scope="row">Week 16</th>
+          <td>Power & Speed</td>
+          <td>Box Jumps & Sprints</td>
+          <td>20</td>
+          <td>High</td>
+          <td>Explosive Power</td>
+          <td>6 x 2</td>
+          <td>Peak (90%)</td>
+          <td>150 - 165</td>
+        </tr>
+        <tr>
+          <th scope="row">Week 17</th>
+          <td>Max Attempt</td>
+          <td>Light Jog</td>
+          <td>15</td>
+          <td>Low</td>
+          <td>1-Rep Max Testing</td>
+          <td>1 x 1</td>
+          <td>Peak (95-100%)</td>
+          <td>140 - 160</td>
+        </tr>
+        <tr>
+          <th scope="row">Week 18</th>
+          <td>Taper Phase I</td>
+          <td>Swimming</td>
+          <td>25</td>
+          <td>Low</td>
+          <td>Maintenance</td>
+          <td>3 x 6</td>
+          <td>Moderate (70%)</td>
+          <td>125 - 140</td>
+        </tr>
+        <tr>
+          <th scope="row">Week 19</th>
+          <td>Taper Phase II</td>
+          <td>Walking</td>
+          <td>20</td>
+          <td>Low</td>
+          <td>Maintenance</td>
+          <td>2 x 5</td>
+          <td>Light (60%)</td>
+          <td>115 - 130</td>
+        </tr>
+        <tr>
+          <th scope="row">Week 20</th>
+          <td>Event / Rest</td>
+          <td>Mobility Drills</td>
+          <td>15</td>
+          <td>Low</td>
+          <td>Rest & Recovery</td>
+          <td>1 x 10</td>
+          <td>Bodyweight</td>
+          <td>100 - 115</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <!-- Colspan use 3 & 4 in tfoot -->
+          <td colspan="3">Program Summary</td>
+          <td colspan="3">Total Endurance Target: ~550 Minutes</td>
+          <td colspan="4">Goal: Progressive Overload & Peak Performance</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+</body>
+</html>
