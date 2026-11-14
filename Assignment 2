@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Application Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #f4f4f9;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    fieldset {
+      border: 2px solid #0056b3;
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+      background-color: #fff;
+    }
+    legend {
+      font-weight: bold;
+      color: #0056b3;
+      padding: 0 10px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+    }
+    .form-group.inline {
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+    }
+    label {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    input, select, textarea {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    input[type="radio"], input[type="checkbox"] {
+      margin-right: 5px;
+    }
+    .radio-group, .checkbox-group {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+    .buttons {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button[type="submit"] {
+      background-color: #28a745;
+      color: white;
+    }
+    button[type="reset"] {
+      background-color: #dc3545;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Job Application Form</h1>
+
+  <form action="#" method="POST" enctype="multipart/form-data">
+    
+    <!-- Group 1: Personal Details -->
+    <fieldset>
+      <legend>Personal Details</legend>
+      
+      <div class="form-group">
+        <label for="full-name">Full Name *</label>
+        <input type="text" id="full-name" name="full_name" placeholder="John Doe" required minlength="2">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address *</label>
+        <input type="email" id="email" name="email" placeholder="john.doe@example.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Account Password *</label>
+        <input type="password" id="password" name="password" placeholder="Min 8 characters" required minlength="8">
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number *</label>
+        <input type="tel" id="phone" name="phone" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+      </div>
+
+      <div class="form-group">
+        <label for="portfolio">Portfolio URL</label>
+        <input type="url" id="portfolio" name="portfolio" placeholder="https://myportfolio.com">
+      </div>
+
+      <div class="form-group">
+        <label for="experience">Years of Experience</label>
+        <input type="number" id="experience" name="experience" min="0" max="50" placeholder="0">
+      </div>
+    </fieldset>
+
+    <!-- Group 2: Role & Preferences -->
+    <fieldset>
+      <legend>Role & Preferences</legend>
+
+      <div class="form-group">
+        <label>Employment Type *</label>
+        <div class="radio-group">
+          <input type="radio" id="full-time" name="employment_type" value="full-time" required>
+          <label for="full-time">Full-Time</label>
+          
+          <input type="radio" id="part-time" name="employment_type" value="part-time">
+          <label for="part-time">Part-Time</label>
+
+          <input type="radio" id="contract" name="employment_type" value="contract">
+          <label for="contract">Contract</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="department">Department *</label>
+        <select id="department" name="department" required>
+          <option value="" disabled selected>-- Select a Department --</option>
+          <option value="engineering">Engineering</option>
+          <option value="design">Design</option>
+          <option value="marketing">Marketing</option>
+          <option value="sales">Sales</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="location">Preferred Location</label>
+        <input type="text" id="location" name="location" list="cities" placeholder="Start typing a city...">
+        <datalist id="cities">
+          <option value="New York"></option>
+          <option value="San Francisco"></option>
+          <option value="London"></option>
+          <option value="Tokyo"></option>
+          <option value="Remote"></option>
+        </datalist>
+      </div>
+
+      <div class="form-group">
+        <label>Skills / Interests</label>
+        <div class="checkbox-group">
+          <input type="checkbox" id="skill-html" name="skills" value="html">
+          <label for="skill-html">HTML/CSS</label>
+
+          <input type="checkbox" id="skill-js" name="skills" value="js">
+          <label for="skill-js">JavaScript</label>
+
+          <input type="checkbox" id="skill-python" name="skills" value="python">
+          <label for="skill-python">Python</label>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- Group 3: Additional Details & Customization -->
+    <fieldset>
+      <legend>Additional Details</legend>
+
+      <div class="form-group">
+        <label for="start-date">Available Start Date</label>
+        <input type="date" id="start-date" name="start_date">
+      </div>
+
+      <div class="form-group">
+        <label for="interview-time">Preferred Interview Time</label>
+        <input type="time" id="interview-time" name="interview_time">
+      </div>
+
+      <div class="form-group">
+        <label for="resume">Upload Resume (PDF/DOC) *</label>
+        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+      </div>
+
+      <div class="form-group">
+        <label for="skill-level">Self-Assessed Skill Level (1 to 10)</label>
+        <input type="range" id="skill-level" name="skill_level" min="1" max="10" value="5">
+      </div>
+
+      <div class="form-group inline">
+        <label for="favorite-color">Favorite Theme Color:</label>
+        <input type="color" id="favorite-color" name="favorite_color" value="#0056b3">
+      </div>
+
+      <div class="form-group">
+        <label for="cover-letter">Cover Letter / Cover Note</label>
+        <textarea id="cover-letter" name="cover_letter" rows="5" placeholder="Tell us why you are a great fit..."></textarea>
+      </div>
+    </fieldset>
+
+    <!-- Submit & Reset -->
+    <div class="buttons">
+      <button type="reset">Reset Form</button>
+      <button type="submit">Submit Application</button>
+    </div>
+
+  </form>
+
+</body>
+</html>
